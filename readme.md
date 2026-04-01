@@ -9,7 +9,5 @@ Créer une API traitant les requêtes POST envoyé par une personne visitant mon
 
 # Informations à collecter 
 Adresse IP 
-
 Heure de connexion 
-
 Host name

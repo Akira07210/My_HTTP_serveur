@@ -1,0 +1,1 @@
+**Lancer le serveur :** python3 -m uvicorn main:app --reload
