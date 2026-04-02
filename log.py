@@ -37,6 +37,7 @@ def log_the_visit_in_CSV(informations):
         except Exception as e:
             self.log(f"Erreur création fichier: {e}")
             self.reset_ui()
+            
     
     #################################################################################################
     ################################ Ecriture dans le fichier #######################################

@@ -16,6 +16,11 @@ async def get_user_info(request: Request):
         "ip": client_host,
         "port": client_port
     }
+	
+	
+	
+	
+	
 from fastapi import FastAPI, Request
 from user_agents import parse
 
