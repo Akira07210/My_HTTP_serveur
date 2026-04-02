@@ -4,7 +4,7 @@ Créer une API traitant les requêtes POST envoyé par une personne visitant mon
 # Roadmap
 - [ ] Création des endpoint de l'api
 - [ ] Création de la base de donnée
-- [ ] Stockage des données dans la db
+- [x] Stockage des données dans la db
 - [ ] Filter les entrées des endpoints
 
 # Informations à collecter 
