@@ -37,10 +37,7 @@ async def log_visit(data: Data, request: Request):
     dictionnaire["Agent"]= user_agent
     log_the_visit_in_CSV(dictionnaire)
 
-    return {
-	"IP": client_ip ,
-	"Agent": user_agent,
-    "received": data.dict()  # transforme le Pydantic model en dict
+    return { "message":"Thank you for your visit" 
     }
     
     
