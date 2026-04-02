@@ -18,7 +18,7 @@ def log_the_visit_in_CSV(informations):
     #################################################################################################
     ######################### Vérifier si le fichier log existe déja ################################
     need_w = True 
-    fieldnames = ['Heure','IP','Host']
+    fieldnames = ['Heure','IP','page','Agent','screen']
 
     try:    
         with open(file_path, "r", encoding="utf-8") as f:
@@ -42,20 +42,11 @@ def log_the_visit_in_CSV(informations):
     ################################ Ecriture dans le fichier #######################################
     
     try:
-        with open(file_name, 'a', newline='', encoding='utf-8') as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=';')
-            # Inforamation est un tab de tab. Le premier tab contient les champs et le deuxième les valeurs. 
-            Liste_champs = informations[0]
-            Liste_valeurs = informations[1]
-            
-            # Création du dictionnaire complet
-            ligne = dict(zip(Liste_champs, Liste_valeurs)) # Zip associe les valeurs et dict en fait un dictionnaire(la forme qu'on attend)
-            
-            writer.writerow(ligne)
-           
+        with open(file_path, 'a', newline='', encoding='utf-8') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=';')            
+            writer.writerow(informations)
     except Exception as e: 
         print("Erreur ecriture : ",e) 
-                
                 
                 
                 

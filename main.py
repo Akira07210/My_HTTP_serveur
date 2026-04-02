@@ -2,6 +2,7 @@
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
+import datetime
 # Mes fichier
 from log import log_the_visit_in_CSV
 
@@ -29,12 +30,17 @@ class Data(BaseModel):
 async def log_visit(data: Data, request: Request):
     client_ip = request.client.host
     user_agent = request.headers.get("user-agent")
-    data_track = data.dict()
+    
+    dictionnaire = data.dict()
+    dictionnaire["Heure"] = datetime.datetime.now().strftime('%H:%M')
+    dictionnaire["IP"]= client_ip
+    dictionnaire["Agent"]= user_agent
+    log_the_visit_in_CSV(dictionnaire)
 
     return {
 	"IP": client_ip ,
-	"agent": user_agent,
-        "received": data.dict()  # transforme le Pydantic model en dict
+	"Agent": user_agent,
+    "received": data.dict()  # transforme le Pydantic model en dict
     }
     
     
