@@ -26,8 +26,8 @@ print(dessin)
 if len(sys.argv)>1 : 
     file_path = sys.argv[1]
 else :
-    file_path = "Fonctionnement.csv" 
-
+    print("Vous devez donner le chemin du fichier CSV à lire en paramètre.")
+    exit()
 while 1 :
     # 1) Récolter les colonnes à print.
     print("Veuillez renseigner vos noms de colonnes à afficher.\nLorsque vous avez fini appuyez sur enter.")
