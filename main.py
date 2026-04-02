@@ -29,7 +29,7 @@ class Data(BaseModel):
 @app.post("/log_your_visit")
 async def log_visit(data: Data, request: Request):
     client_ip = request.client.host
-    user_agent = request.headers.get("user-agent")
+    user_agent = request.headers.get("user-agent").replace(";",",")
     
     dictionnaire = data.dict()
     dictionnaire["Heure"] = datetime.datetime.now().strftime('%H:%M')
