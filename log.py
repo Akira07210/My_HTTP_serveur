@@ -3,7 +3,7 @@ import csv
 import datetime
 
 
-def log_the_visit_in_CSV(informations)
+def log_the_visit_in_CSV(informations):
     # Création de mon chemin vers le fichier log
     date = datetime.datetime.now().strftime('%d_%m')
     file_name = date + "_log_visits.csv"
@@ -45,5 +45,17 @@ def log_the_visit_in_CSV(informations)
         with open(file_name, 'a', newline='', encoding='utf-8') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=';')
             # Inforamation est un tab de tab. Le premier tab contient les champs et le deuxième les valeurs. 
-            # Faire une boucle pour lire chaque champ et l'incrire avec sa valeur 
-            writer.writerow({'Heure scan demande': heure_debut_scan,
+            Liste_champs = informations[0]
+            Liste_valeurs = informations[1]
+            
+            # Création du dictionnaire complet
+            ligne = dict(zip(Liste_champs, Liste_valeurs)) # Zip associe les valeurs et dict en fait un dictionnaire(la forme qu'on attend)
+            
+            writer.writerow(ligne)
+           
+    except Exception as e: 
+        print("Erreur ecriture : ",e) 
+                
+                
+                
+                
